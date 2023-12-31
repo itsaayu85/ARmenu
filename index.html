@@ -1,0 +1,151 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+  </head>
+  <body>
+    <a-scene mindar-image="imageTargetSrc:./targets.mind; maxTrack: 2 " color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-assets>
+        
+        <a-asset-item id="burger" src="./burger.glb"></a-asset-item> 
+        <a-asset-item id="combo" src="./combo.glb"></a-asset-item> 
+        <a-asset-item id="cup" src="./cup.glb"></a-asset-item> 
+        <a-asset-item id="fries" src="./fries.glb"></a-asset-item> 
+        <a-asset-item id="hotdog" src="./hotdog.glb"></a-asset-item> 
+        <a-asset-item id="pizza" src="./pizza.glb"></a-asset-item> 
+      
+
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      
+      <a-entity id="example-target-0" mindar-image-target="targetIndex: 0">
+        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="0.5 0.5 0.5" src="#burger"  gesture-handler="minScale: 0.25; maxScale: 10" ></a-gltf-model>
+      </a-entity>
+
+      <a-entity id="example-target-1" mindar-image-target="targetIndex: 1">
+        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="1.5 1.5 1.5" src="#combo"  gesture-handler="minScale: 0.25; maxScale: 10" ></a-gltf-model>
+      </a-entity>
+
+      <a-entity id="example-target-2" mindar-image-target="targetIndex: 2">
+        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="0.5 0.5 0.5" src="#cup"  gesture-handler="minScale: 0.25; maxScale: 10" ></a-gltf-model>
+      </a-entity>
+
+      <a-entity id="example-target-3" mindar-image-target="targetIndex: 3">
+        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="1.5 1.5 1.5" src="#fries"  gesture-handler="minScale: 0.25; maxScale: 10" ></a-gltf-model>
+      </a-entity> 
+
+      <a-entity id="example-target-4" mindar-image-target="targetIndex: 4">
+        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="1 1 1" src="#hotdog"  gesture-handler="minScale: 0.25; maxScale: 10" ></a-gltf-model>
+      </a-entity>
+
+      <a-entity id="example-target-5" mindar-image-target="targetIndex: 5">
+        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="1 1 1" src="#pizza"  gesture-handler="minScale: 0.25; maxScale: 10" ></a-gltf-model>
+      </a-entity>
+
+      
+    </a-scene>
+
+
+    <script type="text/javascript">
+    
+//--------------------------------------------
+
+const exampleTarget0 = document.querySelector('#example-target-0');
+      exampleTarget0.addEventListener("targetFound", event => {
+        console.log("target found");
+        document.querySelector("#burger").play();
+
+      });
+
+      // detect target lost
+      exampleTarget0.addEventListener("targetLost", event => {
+        console.log("target lost");
+        document.querySelector("#burger").pause();
+      });
+
+//---------------------------------------------
+
+const exampleTarget1 = document.querySelector('#example-target-1');
+      exampleTarget1.addEventListener("targetFound", event => {
+        console.log("target found");
+        document.querySelector("#combo").play();
+
+      });
+
+      // detect target lost
+      exampleTarget1.addEventListener("targetLost", event => {
+        console.log("target lost");
+        document.querySelector("#combo").pause();
+      });
+//------------------------------------------------
+
+const exampleTarget2 = document.querySelector('#example-target-2');
+      exampleTarget2.addEventListener("targetFound", event => {
+        console.log("target found");
+        document.querySelector("#cup").play();
+
+      });
+
+      // detect target lost
+      exampleTarget2.addEventListener("targetLost", event => {
+        console.log("target lost");
+        document.querySelector("#cup").pause();
+      });
+
+//------------------------------------------------
+
+const exampleTarget3 = document.querySelector('#example-target-3');
+      exampleTarget3.addEventListener("targetFound", event => {
+        console.log("target found");
+        document.querySelector("#fries").play();
+
+      });
+
+      // detect target lost
+      exampleTarget3.addEventListener("targetLost", event => {
+        console.log("target lost");
+        document.querySelector("#fries").pause();
+      });
+
+//------------------------------------------------
+
+const exampleTarget4 = document.querySelector('#example-target-4');
+      exampleTarget4.addEventListener("targetFound", event => {
+        console.log("target found");
+        document.querySelector("#hotdog").play();
+
+      });
+
+      // detect target lost
+      exampleTarget4.addEventListener("targetLost", event => {
+        console.log("target lost");
+        document.querySelector("#hotdog").pause();
+      });
+
+//------------------------------------------------
+
+const exampleTarget5 = document.querySelector('#example-target-5');
+      exampleTarget5.addEventListener("targetFound", event => {
+        console.log("target found");
+        document.querySelector("#pizza").play();
+
+      });
+
+      // detect target lost
+      exampleTarget5.addEventListener("targetLost", event => {
+        console.log("target lost");
+        document.querySelector("#pizza").pause();
+      });
+
+//------------------------------------------------
+
+
+  </script>
+
+  </body>
+</html>
